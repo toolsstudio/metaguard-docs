@@ -57,5 +57,5 @@ MetaGuard adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
-[Unreleased]: https://github.com/ToolsStudio/MetaGuard-Docs/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/ToolsStudio/MetaGuard-Docs/releases/tag/v1.0.0
+[Unreleased]: https://github.com/Afterix-Hub/MetaGuard/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Afterix-Hub/MetaGuard/releases/tag/v1.0.0

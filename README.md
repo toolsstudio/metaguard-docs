@@ -26,6 +26,19 @@ MetaGuard detects every class of GUID integrity issue across an entire project, 
 
 ---
 
+## Download
+
+MetaGuard is free. It is available on the following platforms:
+
+- [GitHub](https://github.com/Afterix-Hub/MetaGuard) — source and releases
+- [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206)
+- [itch.io](https://tools-studio.itch.io/MetaGuard)
+- [Gumroad](https://toolsstudio.gumroad.com/l/MetaGuard)
+
+All platforms deliver the same package.
+
+---
+
 ## Features
 
 | Feature | Description |
@@ -68,7 +81,7 @@ Tools > MetaGuard > Open MetaGuard
 4. Click **Apply** or **Fix All Safe**
 5. If the result is unexpected — click **Rollback**
 
-→ See [docs/getting-started.md](docs/getting-started.md) for the full walkthrough.
+→ See [Getting Started](docs/getting-started.md) for the full walkthrough.
 
 ---
 
@@ -119,8 +132,23 @@ MetaGuard-Docs/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
-└── SECURITY.md
+├── SECURITY.md
+└── SUPPORT.md
 ```
+
+---
+
+## Support
+
+- **Discord:** [Discord](https://discord.gg/QNSJZGvRYM) — primary support channel
+- Bug reports and documentation issues: open an issue on [GitHub](https://github.com/Afterix-Hub/MetaGuard)
+- See [SUPPORT.md](SUPPORT.md) for full details
+
+---
+
+## Related Tools
+
+[Runtime Atlas](https://assetstore.unity.com/packages/slug/367424) is a paid Unity Editor toolkit from Tools Studio for runtime diagnostics — frame performance, camera and audio monitoring, alerting, profiling, and session reporting. It operates during Play Mode on runtime system state. MetaGuard and Runtime Atlas address separate problem domains and have no dependency on each other.
 
 ---
 

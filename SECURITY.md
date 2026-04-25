@@ -22,7 +22,7 @@ If you have identified a security concern in the MetaGuard tool itself, follow t
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Report security concerns directly to Tools Studio via the private contact channel listed on the publisher profile.
+Report security concerns directly to Tools Studio via [Discord](https://discord.gg/QNSJZGvRYM) (direct message to a maintainer) or via the GitHub repository's private security advisory feature.
 
 Include:
 - A description of the vulnerability

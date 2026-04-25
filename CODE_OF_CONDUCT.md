@@ -30,7 +30,7 @@ This Code of Conduct applies to all activity in this repository — issues, pull
 
 Violations may result in comments being removed, contributions rejected, or contributors blocked from the repository at the maintainers' discretion.
 
-To report a concern, contact Tools Studio via the support channel listed in the repository.
+To report a concern, contact Tools Studio via [Discord](https://discord.gg/QNSJZGvRYM) or by opening a private GitHub issue.
 
 ---
 

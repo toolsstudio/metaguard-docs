@@ -6,7 +6,7 @@
 
 ## 1. Install
 
-Import the MetaGuard `.unitypackage` into your Unity project.
+Download and import the MetaGuard `.unitypackage` into your Unity project. MetaGuard is free — available on [GitHub](https://github.com/Afterix-Hub/MetaGuard), the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206), [itch.io](https://tools-studio.itch.io/MetaGuard), and [Gumroad](https://toolsstudio.gumroad.com/l/MetaGuard).
 
 ```
 Assets > Import Package > Custom Package…

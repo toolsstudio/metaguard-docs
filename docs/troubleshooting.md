@@ -133,3 +133,14 @@
 1. Open the Unity Console and look for compilation errors.
 2. Re-import the MetaGuard `.unitypackage` via **Assets > Import Package > Custom Package…**
 3. If errors persist, confirm the project meets the minimum Unity version requirement (2020.3 LTS or later).
+
+
+---
+
+## Getting Further Help
+
+If your issue is not listed here:
+
+- [Discord](https://discord.gg/QNSJZGvRYM) — post in the `#metaguard` channel with your Unity version, MetaGuard version, and a description of the issue
+- [GitHub Issues](https://github.com/Afterix-Hub/MetaGuard/issues) — for reproducible bugs not covered by this guide
+- For import or download issues, use the support channel of the platform you downloaded from: [GitHub](https://github.com/Afterix-Hub/MetaGuard), [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206), [itch.io](https://tools-studio.itch.io/MetaGuard), or [Gumroad](https://toolsstudio.gumroad.com/l/MetaGuard)

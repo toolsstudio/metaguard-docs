@@ -2,7 +2,7 @@
 
 Thank you for taking the time to improve the MetaGuard documentation.
 
-This repository contains **documentation only**. The MetaGuard source code is maintained in a separate private repository.
+This repository contains **documentation only**. The MetaGuard source code is publicly available at [GitHub](https://github.com/Afterix-Hub/MetaGuard).
 
 ---
 
@@ -76,4 +76,4 @@ Use the issue templates in `.github/ISSUE_TEMPLATE/`:
 
 ## Questions
 
-Open a GitHub Discussion or contact Tools Studio via the support channel linked in the repository.
+Open a [GitHub Discussion](https://github.com/Afterix-Hub/MetaGuard/discussions) or join the [Discord](https://discord.gg/QNSJZGvRYM) support channel.

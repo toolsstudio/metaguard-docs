@@ -1,3 +1,14 @@
+## Download
+
+MetaGuard is free. Download the `.unitypackage` from any of the following:
+
+- [GitHub](https://github.com/Afterix-Hub/MetaGuard) — releases page (open source)
+- [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206)
+- [itch.io](https://tools-studio.itch.io/MetaGuard)
+- [Gumroad](https://toolsstudio.gumroad.com/l/MetaGuard)
+
+---
+
 # Installation
 
 ---
@@ -15,7 +26,7 @@
 
 ## Importing the Package
 
-1. Download the MetaGuard `.unitypackage` from the release page.
+1. Download the MetaGuard `.unitypackage` from [GitHub](https://github.com/Afterix-Hub/MetaGuard), the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206), [itch.io](https://tools-studio.itch.io/MetaGuard), or [Gumroad](https://toolsstudio.gumroad.com/l/MetaGuard).
 2. In the Unity menu bar, go to **Assets > Import Package > Custom Package…**
 3. Select the downloaded `.unitypackage` file.
 4. In the import dialog, confirm all items are checked and click **Import**.
@@ -67,3 +78,13 @@ All scripts are in Editor-only assemblies and are automatically excluded from ru
 Delete `Assets/MetaGuard/` from the project. No other project files are modified by MetaGuard.
 
 If you applied fixes and are satisfied with the result, no further action is needed before uninstalling.
+
+---
+
+## Support
+
+If installation fails or errors persist after following the steps above:
+
+- [Discord](https://discord.gg/QNSJZGvRYM) — post in the `#metaguard` channel
+- [GitHub Issues](https://github.com/Afterix-Hub/MetaGuard/issues) — for confirmed bugs
+- See [troubleshooting.md](troubleshooting.md) for common issues and resolutions
