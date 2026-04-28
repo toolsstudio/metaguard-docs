@@ -12,7 +12,7 @@ Check [docs/troubleshooting.md](docs/troubleshooting.md) first. It covers the mo
 
 ## Community Support
 
-**[Discord](https://discord.gg/QNSJZGvRYM)** is the primary support channel.
+**[Discord](https://discord.gg/rYbZZz5GH4)** is the primary support channel.
 
 When posting, include:
 - Unity version
