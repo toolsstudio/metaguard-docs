@@ -140,7 +140,7 @@ MetaGuard-Docs/
 
 ## Support
 
-- **Discord:** [Discord](https://discord.gg/QNSJZGvRYM) — primary support channel
+- **Discord:** [Discord](https://discord.gg/rYbZZz5GH4) — primary support channel
 - Bug reports and documentation issues: open an issue on [GitHub](https://github.com/Afterix-Hub/MetaGuard)
 - See [SUPPORT.md](SUPPORT.md) for full details
 
