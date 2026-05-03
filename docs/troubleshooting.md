@@ -205,8 +205,7 @@ If it appears repeatedly on a single startup (multiple times in quick succession
 ## Support
 
 If the issue is not covered here:
-
-  [Discord](https://discord.gg/rYbZZz5GH4) — primary support channel
+  [Discord](https://discord.gg/rYbZZz5GH4)
   [Bug reports](https://discord.gg/mQYguyhYwA)
   [Email](tools.studio@zohomail.in)
 
