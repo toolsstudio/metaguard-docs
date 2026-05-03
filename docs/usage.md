@@ -218,11 +218,11 @@ Displays version, publisher, and support links.
 
 | Button | Destination |
 |---|---|
-| Documentation | https://github.com/toolsstudio/metaguard-docs |
+| Documentation | [DOCS](https://github.com/toolsstudio/metaguard-docs) |
 | Rate on Asset Store | Asset Store product page |
-| Discord Support | https://discord.gg/rYbZZz5GH4 |
-| Email Support | tools.studio@zohomail.in |
-| Report a Bug (Discord) | https://discord.gg/mQYguyhYwA |
+| Discord Support | [Discord](https://discord.gg/rYbZZz5GH4) |
+| Email Support | [Email](tools.studio@zohomail.in) |
+| Report a Bug  | [Discord](https://discord.gg/mQYguyhYwA) |
 
 ---
 
