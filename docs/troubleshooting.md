@@ -206,9 +206,9 @@ If it appears repeatedly on a single startup (multiple times in quick succession
 
 If the issue is not covered here:
 
-- **Discord**: [discord.gg/rYbZZz5GH4](https://discord.gg/rYbZZz5GH4) — primary support channel
-- **Bug reports**: [discord.gg/mQYguyhYwA](https://discord.gg/mQYguyhYwA)
-- **Email**: tools.studio@zohomail.in
+-[**Discord**](https://discord.gg/rYbZZz5GH4) — primary support channel
+- [**Bug reports**](https://discord.gg/mQYguyhYwA)
+- [**Email**](tools.studio@zohomail.in)
 
 When reporting, include:
 - MetaGuard version (shown in the About tab)
