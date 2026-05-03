@@ -205,11 +205,15 @@ If it appears repeatedly on a single startup (multiple times in quick succession
 ## Support
 
 If the issue is not covered here:
-[Discord](https://discord.gg/rYbZZz5GH4)
-[Bug reports](https://discord.gg/mQYguyhYwA)
-[Email](tools.studio@zohomail.in)
 
-When reporting, include:
+- [Join our Discord](https://discord.gg/rYbZZz5GH4)
+- [Report a bug](https://discord.gg/mQyughywA)
+- [Email support](mailto:tools.studio@zohomail.in)
+
+---
+
+### When reporting, include:
+
 - MetaGuard version (shown in the About tab)
 - Unity version and OS
 - Relevant Console output
