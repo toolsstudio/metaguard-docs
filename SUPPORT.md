@@ -25,7 +25,7 @@ When posting, include:
 
 ## Bug Reports
 
-Use the dedicated bug report channel: [discord.gg/mQYguyhYwA](https://discord.gg/mQYguyhYwA)
+Use the dedicated bug report channel: [discord](https://discord.gg/mQYguyhYwA)
 
 Use the `bug_report` issue template. Include a minimal reproduction case if possible.
 
@@ -43,7 +43,7 @@ Documentation contributions via pull request are welcome — see [CONTRIBUTING.m
 
 MetaGuard 2.0.0 is available exclusively on the Unity Asset Store:
 
-- [Unity Asset Store — package 376206](https://assetstore.unity.com/packages/slug/376206)
+- [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206)
 
 For Asset Store invoice, refund, or licensing questions, contact Unity Support directly via your Asset Store account.
 
@@ -51,7 +51,7 @@ For Asset Store invoice, refund, or licensing questions, contact Unity Support d
 
 ## Email
 
-For non-public inquiries: tools.studio@zohomail.in
+For non-public inquiries: [Email](tools.studio@zohomail.in)
 
 ---
 
