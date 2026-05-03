@@ -218,8 +218,8 @@ Displays version, publisher, and support links.
 
 | Button | Destination |
 |---|---|
-| Documentation | [DOCS](https://github.com/toolsstudio/metaguard-docs) |
-| Rate on Asset Store | Asset Store product page |
+| Documentation | [Docs](https://github.com/toolsstudio/metaguard-docs) |
+| Rate on Asset Store | [Asset Store product page](https://assetstore.unity.com/packages/slug/376206) |
 | Discord Support | [Discord](https://discord.gg/rYbZZz5GH4) |
 | Email Support | [Email](tools.studio@zohomail.in) |
 | Report a Bug  | [Discord](https://discord.gg/mQYguyhYwA) |
