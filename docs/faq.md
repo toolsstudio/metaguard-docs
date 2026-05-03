@@ -4,35 +4,25 @@
 
 ## General
 
-**What does MetaGuard actually change in my project?**
+**Does MetaGuard modify anything at runtime?**
 
-MetaGuard reads `.meta` files and YAML asset serialization data to detect GUID integrity issues. When Apply runs, it writes corrected content to affected `.meta` and asset files. It does not modify binary assets, scene files, or prefab files directly. Every change is recorded in a snapshot before it is made.
+No. All MetaGuard assemblies are Editor-only and are excluded from builds automatically. Nothing from MetaGuard appears in a player build. The `MetaGuard.Internal` assembly is runtime-safe (no Editor dependencies) but is marked `autoReferenced: true` so the scene serializer can locate the `DemoBootstrap` MonoBehaviour — it does not introduce any runtime code to builds.
 
----
+**Does MetaGuard work with URP, HDRP, and the built-in render pipeline?**
 
-**Is it safe to run on a production project?**
+Yes. MetaGuard operates on `.meta` files and the GUID layer of the asset system, which is render-pipeline-independent. URP projects may initially show false-positive BrokenReference results for pipeline-managed assets — this is addressed by the `excludeAssetPaths` field in the policy file. The default policy already excludes the relevant URP assets.
 
-Yes. MetaGuard creates a complete snapshot of all affected files before writing anything. If the result is not what you expected, Rollback restores the previous state in a single click — and remains available for 48 hours, including after restarting the Editor.
+**What Unity versions are supported?**
 
-That said: committing to source control before running Apply on a significant issue set is always the right move. The snapshot system is a safety net — it does not replace version control.
+Unity 2020.3 LTS and later, including Unity 6. Earlier versions are not tested and are not supported.
 
----
+**Is MetaGuard safe to use on a project in active development?**
 
-**Does MetaGuard add anything to my build?**
+Yes. MetaGuard creates a pre-apply snapshot before any file write and provides a 48-hour rollback window. The simulation stage confirms every operation's safety before Apply runs. No file is modified without a recoverable backup.
 
-No. All MetaGuard scripts are in Editor-only assemblies and are excluded from all builds automatically. There is no runtime footprint.
+**Does MetaGuard require any dependencies?**
 
----
-
-**Does MetaGuard modify scene or prefab files?**
-
-No. MetaGuard repairs GUID fields in `.meta` files and YAML asset data. Scene (`.unity`) and prefab (`.prefab`) files are not modified.
-
----
-
-**Does MetaGuard work with all render pipelines?**
-
-Yes. MetaGuard has no render pipeline dependency. It operates on `.meta` files and Unity's YAML asset serialization, which is pipeline-agnostic.
+No. MetaGuard has no external package dependencies and does not require the Package Manager to install anything. All required code is included in the `.unitypackage`.
 
 ---
 
@@ -40,102 +30,147 @@ Yes. MetaGuard has no render pipeline dependency. It operates on `.meta` files a
 
 **How long does a scan take?**
 
-On a project with a few hundred assets, a full scan completes in seconds. On very large projects, enable the scan cache — after the first full scan, subsequent scans skip unchanged files and complete much faster.
+On a project with a few hundred assets, a full scan typically completes in under one second. With the cache enabled, repeated scans of unchanged projects complete in milliseconds. Large projects (10,000+ assets) may take 5–15 seconds on a cold cache, depending on disk speed.
 
-→ See [cache-system.md](cache-system.md).
+**Does MetaGuard scan files in the `Packages/` directory?**
 
----
+The default scan depth is `AssetsAndPackages`, which indexes GUIDs in the `Packages/` folder. This is required to correctly resolve references from assets like URP materials that point to shader GUIDs inside the `Packages/` directory. MetaGuard never writes to `Packages/`.
 
-**Should I wait for Unity to finish importing before scanning?**
+**Why does my project show 120+ BrokenReference issues on the first scan after upgrading from v1.0.0?**
 
-Yes. Assets mid-import may have incomplete GUID data. Wait for the import progress bar to clear before starting a scan.
+In v1.0.0, the default scan depth was `AssetsOnly`. Upgrading to v2.0.0 changes the default to `AssetsAndPackages`, which may reveal pre-existing issues that were not visible before because the relevant GUIDs were outside the scan boundary.
 
----
+Additionally, if your policy file was created in v1.0.0, it will not contain the `excludeAssetPaths` entries for URP assets. Add them manually:
 
-**Does MetaGuard scan the Packages or Library folders?**
+```json
+"excludeAssetPaths": [
+  "Assets/DefaultVolumeProfile.asset",
+  "Assets/UniversalRenderPipelineGlobalSettings.asset"
+]
+```
 
-No. MetaGuard scans the `Assets/` folder only. `Packages/`, `Library/`, and `Temp/` are not included.
+Then reload the policy and run the scan again.
 
----
+**Does the scan include scripts?**
 
-**What does the health score mean?**
+MetaGuard scans `.meta` files and reads GUID references from YAML-serialised asset files. It does not parse C# script contents. Scripts are included in the scan to the extent that their `.meta` files are checked for GUID integrity (zero GUID, malformed GUID, etc.).
 
-The health score (0–100) is a weighted aggregate of all detected issues. A score of 100 means no issues were found. Lower scores reflect the number and severity of detected problems. The score is a quick indicator — always review the Issues tab for specifics.
+**Can I exclude specific folders from scanning?**
 
----
+At the file level, yes — add paths to `excludeAssetPaths` in the policy file. Full folder exclusion is not currently available as a configuration option. Paths in `excludeAssetPaths` apply to BrokenReference analysis specifically. Other issue classes (OrphanedMeta, ZeroGUID, etc.) are not filtered by this field.
 
-## Simulation
+**What does the Dirty badge mean?**
 
-**What is the difference between Dangerous and Destructive verdicts?**
-
-A **Dangerous** verdict means the operation has potential side effects that warrant review before applying. MetaGuard will apply Dangerous operations if you confirm the Apply dialog.
-
-A **Destructive** verdict means the operation will break existing references. MetaGuard does not apply Destructive operations through Apply or Fix All Safe — they require explicit handling.
-
----
-
-**Can I run Simulate multiple times without applying?**
-
-Yes. Simulate can be run as many times as needed without affecting the project. Run Scan + Analyze first if the project state has changed since the last scan.
+The `Dirty (N)` badge in the header indicates that N assets have changed since the last scan. MetaGuard monitors the project for file changes passively. The Dirty state is a prompt to run a new scan — it does not affect existing scan results until you click Scan + Analyze.
 
 ---
 
-## Applying
+## Apply & Rollback
 
-**What happens if Unity closes or crashes during Apply?**
+**Is it safe to close the Editor immediately after Apply?**
 
-The three-tier safety system handles it. Each file write is staged through a temporary path — if the write is interrupted, the original file is untouched. On the next Editor open, if the session is still within 48 hours, Rollback is available to restore all files to their pre-Apply state.
+Yes. Session data is written to disk before any project file is modified. You can close the Editor at any point after Apply, and Rollback will still be available when you reopen the project (within the 48-hour window).
 
----
+**Can I roll back a Fix All Safe operation?**
 
-**What is the difference between Apply and Fix All Safe?**
+Yes. Fix All Safe creates the same pre-apply snapshot as a manual Apply. Rollback works identically for both.
 
-**Apply** runs the operations from the most recent simulation, writing Safe and Warning verdicts to disk.
+**What happens if rollback fails for one file?**
 
-**Fix All Safe** runs the full pipeline — scan, simulate, and apply — in one automated action, writing only Safe verdicts. Use it for routine maintenance when you want a conservative, fully automated pass.
+MetaGuard validates each file by SHA-256 hash before restoring it. If a hash mismatch or missing snapshot file is detected, MetaGuard logs an error for that specific file and continues restoring the rest. A partial rollback is better than an aborted one. Files that could not be restored must be recovered from source control.
 
----
+**Does rollback work across Unity restarts?**
 
-**Can I apply individual operations rather than all at once?**
+Yes. Sessions persist on disk and survive domain reloads, editor restarts, and Unity crashes. The session initializer checks for valid sessions on startup and activates the Rollback button if one is found within the 48-hour window.
 
-Not in v1.0.0. Apply writes all Safe and Warning operations from the most recent simulation. Use the Issues tab filters before simulating to narrow the scope if you want to limit which issues are addressed.
+**Can I undo a Rollback?**
 
----
+No. Rollback is a one-way operation. Once completed, the session is cleared and the pre-rollback state is gone from MetaGuard's snapshot system. If you need to revert a rollback, use source control.
 
-## Rollback
+**Why does Apply require a Simulate first?**
 
-**How long is rollback available?**
-
-48 hours from the time Apply completed, including across editor restarts and domain reloads.
+The simulation stage ensures that every operation has a known verdict before any file is touched. Without simulation, MetaGuard cannot guarantee that an operation is Safe. This gate is enforced at the engine level and cannot be bypassed.
 
 ---
 
-**Does rollback undo manual changes I made after Apply?**
+## Policy
 
-Yes. Rollback restores all affected files to their pre-Apply state. Any changes made to those files after Apply — manual edits, Unity reimports, other tooling — are overwritten. Only the files that were part of the Apply session are affected.
+**What happens if the policy file is missing?**
 
----
+MetaGuard applies a set of built-in defaults and continues normally. The defaults match those in the auto-generated policy file. MetaGuard does not fail or show an error if the policy file is absent — it simply falls back to defaults.
 
-**Can I roll back after restarting Unity?**
+**Can different team members use different policy settings?**
 
-Yes. The session persists across editor restarts for 48 hours.
+The policy file is committed to source control and shared across the team. This is the intended model. If you need developer-specific overrides, create a local policy file and point the CLI to it using `--policy <path>`. The Editor tool always reads from `Assets/MetaGuard/metaguard_policy.json`.
 
----
+**What does the `Block` action do in the Editor?**
 
-## Cache
+In the Editor, `Block` behaves identically to `Flag` — the issue is surfaced and a suggestion is generated. The distinction is in the CLI: `Block` forces `has_violations = true` and exit code 1 regardless of issue counts or threshold. This is what makes GUIDCollision a hard CI gate while still allowing developers to review the issue in the Editor.
 
-**Should I commit `scan_cache.txt` to source control?**
+**Can I add custom issue classes to the policy?**
 
-No. The cache file is machine-specific and should be excluded from version control. Each team member builds their own cache from their first local scan.
-
----
-
-**Is cache data shared across the team?**
-
-No. Cache data is local to the machine. Different team members will have different cache states depending on their local scan history.
+No. The policy file governs the seven built-in issue classes only. Custom detection logic is not supported in the current version.
 
 ---
 
-**Does disabling the cache affect scan accuracy?**
+## CLI
 
-No. With the cache disabled, every file is read fresh regardless of modification state. Accuracy is identical — only performance differs. The cache never alters what is detected, only what is skipped.
+**Does the CLI apply fixes?**
+
+No. The CLI scans, analyzes, and reports. It does not apply any fix operations. Fix operations must be performed through the Editor. This is an intentional constraint — automated writes to project files in a CI environment, without a human review step and a rollback path, would be unsafe.
+
+**Can I run the CLI without a Unity license?**
+
+No. The CLI runs inside Unity batch mode, which requires an active Unity license. MetaGuard does not impose additional licensing beyond what Unity requires. In CI environments, a Unity floating license or a seat assigned to the CI machine is required.
+
+**The CLI exits with code 2. What does that mean?**
+
+Exit code 2 indicates a scan-level failure — not a GUID integrity violation, but an error that prevented the scan from completing. Common causes are an invalid project path, a missing Unity license, or malformed JSON in the policy file. Check the `-logFile` output and the report's `error` field for the specific failure message.
+
+**Can I use the CLI with a custom policy file that is not in the project?**
+
+Yes. Use `--policy <absolute-or-relative-path>` to point the CLI at any valid `metaguard_policy.json` file, regardless of its location. This is useful for CI environments that manage policy files externally or apply different rules for different pipeline stages.
+
+**Why does the CLI always generate a report even when `--output` is not specified?**
+
+Consistent report generation makes it possible to upload CI artifacts unconditionally — you do not need to handle the case where no report was produced. The auto-report path (`MetaGuardReports/report_YYYY-MM-DD_HH-mm-ss.json`) is deterministic and does not overwrite previous reports.
+
+---
+
+## Demo System
+
+**What is the demo system for?**
+
+The demo system seeds a controlled set of broken asset states so you can verify that MetaGuard detects, simulates, and fixes each issue class correctly in your environment. It is useful for verifying a fresh installation, onboarding new team members, and regression testing after a package update.
+
+**Why does Validate Demo State show 3/5 after setup?**
+
+Unity's `AssetDatabase.Refresh()` regenerates missing `.meta` files (TC-2) and processes orphaned `.meta` files (TC-1) automatically. In MetaGuard 2.0.0, TC-1 and TC-2 are written as the last step of setup, after all `Refresh()` calls complete, so Unity has no opportunity to repair them. If you are seeing 3/5, you are likely running an earlier version. Update to the latest package.
+
+**Are the YAML warnings for TC-3 and TC-4 expected?**
+
+Yes. TC-3 contains an all-zero GUID and TC-4 contains a non-hex GUID string. These are deliberately invalid values. The Unity YAML parser warnings confirm the test cases are in the correct broken state. They are not MetaGuard errors and require no action.
+
+**Does the demo affect my project permanently?**
+
+No. All test case files are written to `Assets/MetaGuard/Demo/TestAssets/`. Running **Teardown Demo Assets** deletes all seeded files and returns the directory to a clean state. The demo scene, scripts, and assembly definitions are preserved — they are package files, not test state.
+
+---
+
+## Licensing and Purchase
+
+**Where can I purchase MetaGuard?**
+
+MetaGuard 2.0.0 is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).
+
+**Is there a free trial or demo version?**
+
+There is no separate trial version. The demo system included in the package allows you to validate the tool in your project environment after purchase.
+
+**What is the license?**
+
+MetaGuard is licensed under the Unity Asset Store End User License Agreement (EULA). See the [LICENSE](../LICENSE) file and the Asset Store product page for details.
+
+**Are updates included?**
+
+Updates are distributed through the Unity Asset Store. Minor updates (bug fixes, compatibility patches) within the current major version are included at no additional cost. Check the Asset Store product page for update availability.

@@ -1,23 +1,16 @@
 ---
 name: Documentation Request
-about: Request new documentation or coverage of a missing topic
-title: "[DOC REQUEST] "
-labels: "enhancement, documentation"
-assignees: ""
+about: Request new documentation or coverage of a topic not currently documented
+labels: documentation
+assignees: ''
 ---
 
-## What is missing
+**What topic is not covered or is underdocumented?**
 
-<!-- Describe the topic, feature, or workflow that is not currently documented -->
+**Why is this important?**
+<!-- Describe the problem you encountered or the question you couldn't answer from the current docs. -->
 
-## Why it is needed
+**Suggested location:**
+<!-- Which document should this be added to, or should it be a new document? -->
 
-<!-- Who would benefit from this documentation and in what scenario? -->
-
-## Suggested location
-
-<!-- Where in the docs should this live? e.g. docs/troubleshooting.md, new file in docs/ -->
-
-## Additional context
-
-<!-- Optional: examples, links, or anything else that would help -->
+**Additional context:**

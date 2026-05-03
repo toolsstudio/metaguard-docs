@@ -2,7 +2,7 @@
 
 Thank you for taking the time to improve the MetaGuard documentation.
 
-This repository contains **documentation only**. The MetaGuard source code is publicly available at [GitHub](https://github.com/Afterix-Hub/MetaGuard).
+This repository contains **documentation only**.
 
 ---
 
@@ -13,11 +13,12 @@ This repository contains **documentation only**. The MetaGuard source code is pu
 - New troubleshooting entries for confirmed, reproducible issues
 - New FAQ entries for questions that arise frequently
 - Additional usage examples
+- Updates reflecting new MetaGuard releases
 
 ## What Does Not Belong Here
 
 - Source code of any kind
-- Internal implementation details, class names, or architecture descriptions
+- Internal implementation details, class names, or architecture descriptions not reflected in public behavior
 - Debug logs or dev notes
 - Content that exposes non-public API surface
 
@@ -26,7 +27,7 @@ This repository contains **documentation only**. The MetaGuard source code is pu
 ## How to Contribute
 
 1. **Fork** this repository.
-2. **Create a branch** named after the change: `fix/installation-typo`, `docs/add-faq-entry`, etc.
+2. **Create a branch** named after the change: `fix/installation-typo`, `docs/add-faq-entry`, `docs/cli-example`, etc.
 3. **Make your changes** following the style guidelines below.
 4. **Open a pull request** with a clear description of what changed and why.
 
@@ -42,7 +43,7 @@ This repository contains **documentation only**. The MetaGuard source code is pu
 **Formatting**
 - Use ATX headings (`##`, `###`) — no underline-style headings.
 - Use tables for structured comparisons, not bullet lists.
-- Use fenced code blocks (` ``` `) for paths, file names, and menu navigation sequences.
+- Use fenced code blocks (` ``` `) for paths, file names, command-line examples, and menu navigation sequences.
 - One blank line between sections. Two blank lines before a top-level `##` heading.
 - Filenames in code formatting: `scan_cache.txt`, `MetaGuard/Snapshots/`.
 - UI elements in bold: **Scan + Analyze**, **Fix All Safe**, **Rollback**.
@@ -76,4 +77,4 @@ Use the issue templates in `.github/ISSUE_TEMPLATE/`:
 
 ## Questions
 
-Open a [GitHub Discussion](https://github.com/Afterix-Hub/MetaGuard/discussions) or join the [Discord](https://discord.gg/QNSJZGvRYM) support channel.
+Join the [Discord](https://discord.gg/rYbZZz5GH4) support channel.

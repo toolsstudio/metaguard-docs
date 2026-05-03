@@ -1,26 +1,28 @@
 ---
-name: Documentation Bug
-about: Report incorrect, misleading, or outdated documentation
-title: "[DOC BUG] "
-labels: "bug, documentation"
-assignees: ""
+name: Bug Report
+about: Report incorrect, missing, or misleading documentation
+labels: bug
+assignees: ''
 ---
 
-## What is wrong
+**Document affected:**
+<!-- e.g. docs/troubleshooting.md, README.md -->
 
-<!-- Describe the documentation issue clearly. What is incorrect or misleading? -->
+**MetaGuard version:**
+<!-- e.g. 2.0.0 -->
 
-## Where it is
+**Unity version:**
+<!-- e.g. 6000.0.10f1 -->
 
-<!-- Link to the file and section, e.g. docs/troubleshooting.md → "Apply aborts before writing" -->
+**Operating system:**
 
-**File:** 
-**Section:** 
+---
 
-## What it should say
+**What is incorrect or missing?**
+<!-- Be specific. Quote the exact text if relevant. -->
 
-<!-- Provide the corrected text or describe what the correct information is -->
+**What should it say instead?**
+<!-- Provide corrected or missing content if you can. -->
 
-## Context
-
-<!-- Optional: Unity version, OS, MetaGuard version, or anything else relevant -->
+**Additional context:**
+<!-- Screenshots, error logs, or anything else that helps. -->

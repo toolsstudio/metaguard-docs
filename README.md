@@ -1,15 +1,13 @@
 <div align="center">
 
-# MetaGuard
+<img src="images/MG_Cover.png" alt="MetaGuard — Unity GUID Integrity Engine" width="100%">
 
-**GUID Integrity System for Unity**
+<br><br>
 
-[![Unity](https://img.shields.io/badge/Unity-2020.3%2B-black?logo=unity)](https://unity.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Unity](https://img.shields.io/badge/Unity-2020.3%2B-black?logo=unity&logoColor=white)](https://unity.com)
+[![Version](https://img.shields.io/badge/Version-2.0.0-brightgreen)](CHANGELOG.md)
 [![Platform](https://img.shields.io/badge/Platform-Editor%20Only-blue)]()
-[![Version](https://img.shields.io/badge/Version-1.0.0-orange)]()
-
-*Scan. Simulate. Apply. Roll back if needed.*
+[![Asset Store](https://img.shields.io/badge/Asset%20Store-376206-orange)](https://assetstore.unity.com/packages/slug/376206)
 
 </div>
 
@@ -17,25 +15,14 @@
 
 ## Overview
 
-Unity projects accumulate GUID corruption silently. Broken asset references, duplicate GUIDs, and orphaned `.meta` files compound over time — surfacing during merges, after directory restructuring, or before Asset Store submissions, when the cost of fixing them is highest.
+Unity projects accumulate GUID corruption silently. Broken asset references, duplicate GUIDs, and orphaned `.meta` files compound over time — surfacing during merges, after directory restructuring, or before release, when the cost of fixing them is highest.
 
 MetaGuard detects every class of GUID integrity issue across an entire project, simulates every proposed fix against a live dependency graph, and applies only safe operations — with a full pre-apply snapshot and 48-hour rollback guarantee.
 
-> **No file is modified without a recoverable snapshot.**  
-> **No operation is applied without a simulation verdict.**
+In 2.0.0, MetaGuard adds a policy system for per-team rule enforcement, a CLI entry point for CI/CD integration, a project health history log, and a complete demo system for validation.
 
----
-
-## Download
-
-MetaGuard is free. It is available on the following platforms:
-
-- [GitHub](https://github.com/Afterix-Hub/MetaGuard) — source and releases
-- [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206)
-- [itch.io](https://tools-studio.itch.io/MetaGuard)
-- [Gumroad](https://toolsstudio.gumroad.com/l/MetaGuard)
-
-All platforms deliver the same package.
+> **No file is modified without a recoverable snapshot.**
+> **No operation reaches Apply without passing simulation.**
 
 ---
 
@@ -43,15 +30,18 @@ All platforms deliver the same package.
 
 | Feature | Description |
 |---|---|
-| 🔍 **Full Project Scan** | Enumerates all `.meta` files, extracts GUIDs, maps every asset relationship |
+| 🔍 **Full Project Scan** | Enumerates all `.meta` files, extracts GUIDs, maps every asset relationship. Defaults to Assets + Packages depth to resolve pipeline-managed references. |
 | 🕸️ **Dependency Graph** | Builds a directed reference graph for accurate pre-fix impact analysis |
 | 🧩 **7-Class Issue Detection** | GUID collisions, zero GUIDs, malformed GUIDs, orphaned/missing metas, broken references, cyclic dependencies |
 | 📊 **Risk Classification** | Every issue rated Critical / High / Medium / Low |
 | 🧪 **Simulation Engine** | Every fix tested against an in-memory graph clone — no files touched |
 | ✅ **Safe Apply Pipeline** | Atomic writes, staged through temp files, Unity asset database batched |
+| 📋 **Policy System** | Per-project `metaguard_policy.json` — controls issue handling across the team and in CI |
 | 🔁 **Auto-Fix Controller** | GUID regeneration, orphan deletion, missing meta creation — one click |
 | ⚡ **Scan Cache** | Skips unchanged files on repeated scans for faster iteration |
 | 🛡️ **Three-Tier Rollback** | Snapshot → persistent session → automatic failure recovery |
+| 🖥️ **CLI / CI Integration** | Headless batch-mode entry point, JSON reports, deterministic exit codes |
+| 📈 **Health History** | Per-scan health score log committed to source control |
 
 ---
 
@@ -87,8 +77,8 @@ Tools > MetaGuard > Open MetaGuard
 
 ## Requirements
 
-- **Unity 2020.3 LTS** or later
-- All render pipelines supported
+- **Unity 2020.3 LTS** or later (including Unity 6)
+- All render pipelines supported (Built-in, URP, HDRP)
 - Editor-only — zero runtime footprint, not included in builds
 
 ---
@@ -97,14 +87,19 @@ Tools > MetaGuard > Open MetaGuard
 
 | Document | Description |
 |---|---|
-| [Getting Started](docs/getting-started.md) | Installation, first scan, first rollback |
+| [Getting Started](docs/getting-started.md) | First scan, first rollback, recommended workflow |
 | [Installation](docs/installation.md) | Import steps, folder layout, updating, uninstalling |
 | [Usage](docs/usage.md) | Every button, tab, and control explained |
 | [Features](docs/features.md) | Full feature reference |
-| [Safety](docs/safety.md) | Snapshot and rollback model in detail |
+| [Policy System](docs/policy.md) | Per-project rules, team sharing, CI enforcement |
+| [CLI & CI Integration](docs/cli.md) | Batch mode, JSON reports, exit codes, GitHub Actions example |
+| [Safety & Rollback](docs/safety.md) | Snapshot and rollback model in detail |
 | [Cache System](docs/cache-system.md) | When to enable, disable, and reset the scan cache |
+| [Demo System](docs/demo.md) | Seeding and validating the test environment |
+| [Best Practices](docs/best-practices.md) | Team workflows, source control, CI gates |
 | [Troubleshooting](docs/troubleshooting.md) | Common issues and their resolutions |
 | [FAQ](docs/faq.md) | Frequently asked questions |
+| [Changelog](CHANGELOG.md) | Full version history |
 
 ---
 
@@ -122,8 +117,12 @@ MetaGuard-Docs/
 │   ├── installation.md
 │   ├── usage.md
 │   ├── features.md
+│   ├── policy.md
+│   ├── cli.md
 │   ├── safety.md
 │   ├── cache-system.md
+│   ├── demo.md
+│   ├── best-practices.md
 │   ├── troubleshooting.md
 │   └── faq.md
 ├── images/
@@ -140,28 +139,21 @@ MetaGuard-Docs/
 
 ## Support
 
-- **Discord:** [Discord](https://discord.gg/rYbZZz5GH4) — primary support channel
-- Bug reports and documentation issues: open an issue on [GitHub](https://github.com/Afterix-Hub/MetaGuard)
-- See [SUPPORT.md](SUPPORT.md) for full details
+| Channel | |
+|---|---|
+| Discord | [Join Discord](https://discord.gg/rYbZZz5GH4) — primary support channel |
+| Bug Reports | [GitHub Issues](https://github.com/Afterix-Hub/MetaGuard) |
+| Email | [Contact via Email](mailto:tools.studio@zohomail.in) |
+| Asset Store | [View on Unity Asset Store](https://assetstore.unity.com/packages/slug/376206) |
 
----
-
-## Related Tools
-
-[Runtime Atlas](https://assetstore.unity.com/packages/slug/367424) is a paid Unity Editor toolkit from Tools Studio for runtime diagnostics — frame performance, camera and audio monitoring, alerting, profiling, and session reporting. It operates during Play Mode on runtime system state. MetaGuard and Runtime Atlas address separate problem domains and have no dependency on each other.
+See [SUPPORT.md](SUPPORT.md) for full details.
 
 ---
 
 ## Contributing
 
-Documentation improvements, corrections, and additions are welcome.  
+Documentation improvements, corrections, and additions are welcome.
 See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
-
----
-
-## License
-
-MIT — see [LICENSE](LICENSE) for details.
 
 ---
 

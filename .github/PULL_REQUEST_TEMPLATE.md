@@ -1,26 +1,26 @@
 ## Summary
 
-<!-- What does this PR change? One or two sentences. -->
+<!-- What does this pull request change and why? -->
 
-## Type of change
+## Type of Change
 
-- [ ] Correction (typo, inaccurate information, broken link)
-- [ ] Clarity improvement (rewording, restructuring existing content)
-- [ ] New content (new section, new file, new FAQ entry)
-- [ ] Other — describe:
+- [ ] Correction (factual error, typo, broken link)
+- [ ] Clarity improvement (rewording, restructuring)
+- [ ] New content (additional section, new document)
+- [ ] Version update (content updated to reflect a new release)
 
-## Files changed
+## Documents Changed
 
-<!-- List the files modified or added -->
+<!-- List the files modified -->
 
 ## Checklist
 
 - [ ] No source code or internal class names included
-- [ ] No new files outside `docs/`, `images/`, or repo root
-- [ ] Style guidelines in `CONTRIBUTING.md` followed
-- [ ] All internal links verified
+- [ ] Style guidelines followed (see CONTRIBUTING.md)
+- [ ] All internal links checked and working
 - [ ] Spelling and grammar reviewed
+- [ ] No placeholder or TODO text left in the content
 
-## Related issue
+## Related Issue
 
-<!-- Closes #N  /  Related to #N  /  N/A -->
+<!-- If this PR closes an issue, reference it: Closes #N -->

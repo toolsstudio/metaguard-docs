@@ -14,7 +14,8 @@ If you have identified a security concern in the MetaGuard tool itself, follow t
 
 | Version | Supported |
 |---|---|
-| 1.0.0 | ✅ |
+| 2.0.0 | ✅ |
+| 1.0.0 | ❌ End of life |
 
 ---
 
@@ -22,7 +23,7 @@ If you have identified a security concern in the MetaGuard tool itself, follow t
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Report security concerns directly to Tools Studio via [Discord](https://discord.gg/QNSJZGvRYM) (direct message to a maintainer) or via the GitHub repository's private security advisory feature.
+Report security concerns directly to Tools Studio via Discord (direct message to a maintainer) at [discord.gg/rYbZZz5GH4](https://discord.gg/rYbZZz5GH4), or via email at tools.studio@zohomail.in.
 
 Include:
 - A description of the vulnerability
