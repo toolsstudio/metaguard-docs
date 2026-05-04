@@ -1,6 +1,5 @@
 <div align="center">
 
-<<<<<<< HEAD
 <img src="images/MG_Cover.png" alt="MetaGuard Pro — Unity GUID Integrity Engine" width="100%">
 =======
 <img src="images/MG_Cover.png" alt="MetaGuard — Unity GUID Integrity Engine" width="100%">
