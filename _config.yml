@@ -1,4 +1,5 @@
 title: MetaGuard Documentation
+<<<<<<< HEAD
 description: Unity GUID Integrity Engine — Production-grade .meta file integrity and repair.
 theme: jekyll-theme-minimal
 markdown: GFM
@@ -13,3 +14,8 @@ nav:
     url: "/CHANGELOG"
   - label: "Versions"
     url: "/VERSIONS"
+=======
+description: Unity GUID Integrity Engine — v2.0.0
+theme: jekyll-theme-minimal
+markdown: GFM
+>>>>>>> 535bab848ab29badabd4510c97f00570ec3ca11a

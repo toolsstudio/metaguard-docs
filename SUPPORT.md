@@ -6,7 +6,11 @@
 
 ## Before Asking
 
+<<<<<<< HEAD
 Check [docs/troubleshooting.md](../../versions/v2/troubleshooting.md) first. It covers the most common scan, apply, rollback, cache, policy, and CLI issues with step-by-step resolutions.
+=======
+Check [docs/troubleshooting.md](docs/troubleshooting.md) first. It covers the most common scan, apply, rollback, cache, policy, and CLI issues with step-by-step resolutions.
+>>>>>>> 535bab848ab29badabd4510c97f00570ec3ca11a
 
 ---
 
@@ -25,7 +29,11 @@ When posting, include:
 
 ## Bug Reports
 
+<<<<<<< HEAD
 Use the dedicated bug report channel: [discord.gg/mQYguyhYwA](https://discord.gg/mQYguyhYwA)
+=======
+Use the dedicated bug report channel: [discord](https://discord.gg/mQYguyhYwA)
+>>>>>>> 535bab848ab29badabd4510c97f00570ec3ca11a
 
 Use the `bug_report` issue template. Include a minimal reproduction case if possible.
 
@@ -41,9 +49,15 @@ Documentation contributions via pull request are welcome — see [CONTRIBUTING.m
 
 ## Purchase & Licensing
 
+<<<<<<< HEAD
 MetaGuard Pro 2.0.0 is available exclusively on the Unity Asset Store:
 
 - [Unity Asset Store — package 376206](https://assetstore.unity.com/packages/slug/376206)
+=======
+MetaGuard 2.0.0 is available exclusively on the Unity Asset Store:
+
+- [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206)
+>>>>>>> 535bab848ab29badabd4510c97f00570ec3ca11a
 
 For Asset Store invoice, refund, or licensing questions, contact Unity Support directly via your Asset Store account.
 
@@ -51,7 +65,11 @@ For Asset Store invoice, refund, or licensing questions, contact Unity Support d
 
 ## Email
 
+<<<<<<< HEAD
 For non-public inquiries: tools.studio@zohomail.in
+=======
+For non-public inquiries: [Email](tools.studio@zohomail.in)
+>>>>>>> 535bab848ab29badabd4510c97f00570ec3ca11a
 
 ---
 
