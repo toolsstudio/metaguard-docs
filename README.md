@@ -80,8 +80,8 @@ Tools > MetaGuard Pro > Open
 
 | Channel | |
 |---|---|
-| **Discord** | [discord](https://discord.gg/rYbZZz5GH4) — primary support channel |
-| **Bug Reports** | [discord](https://discord.gg/mQYguyhYwA) |
+| **Discord** | [Discord](https://discord.gg/rYbZZz5GH4) — primary support channel |
+| **Bug Reports** | [Discord](https://discord.gg/mQYguyhYwA) |
 | **Email** | [Contact us](tools.studio@zohomail.in) |
 | **Asset Store** | [Asset Store](https://assetstore.unity.com/packages/slug/376206) |
 
