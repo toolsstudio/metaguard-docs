@@ -1,0 +1,15 @@
+title: MetaGuard Documentation
+description: Unity GUID Integrity Engine — Production-grade .meta file integrity and repair.
+theme: jekyll-theme-minimal
+markdown: GFM
+
+# Stable navigation — do not use version-specific paths for primary nav
+nav:
+  - label: "Latest"
+    url: "/"
+  - label: "Getting Started"
+    url: "/docs/getting-started"
+  - label: "Changelog"
+    url: "/CHANGELOG"
+  - label: "Versions"
+    url: "/VERSIONS"
