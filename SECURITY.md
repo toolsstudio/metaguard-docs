@@ -23,11 +23,11 @@ If you have identified a security concern in the MetaGuard tool itself, follow t
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-<<<<<<< HEAD
+
 Report security concerns directly to Tools Studio via Discord (direct message to a maintainer) at [discord.gg/rYbZZz5GH4](https://discord.gg/rYbZZz5GH4), or via email at tools.studio@zohomail.in.
-=======
+
 Report security concerns directly to Tools Studio via Discord (direct message to a maintainer) at [Discord](https://discord.gg/rYbZZz5GH4), or via [Email](tools.studio@zohomail.in).
->>>>>>> 535bab848ab29badabd4510c97f00570ec3ca11a
+
 
 Include:
 - A description of the vulnerability
