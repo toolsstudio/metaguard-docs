@@ -32,11 +32,7 @@ MetaGuard adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Deterministic exit codes: `0` = clean, `1` = violations, `2` = scan failure
 - Violation logic: `has_violations = true` when `critical > 0`, `high > 0`, `health_score == 0`, or `health_score <= threshold`
 - Debug line emitted after each evaluation: `ViolationCheck => critical:X high:Y threshold:Z result:true/false`
-<<<<<<< HEAD
 - Shell script template included at `Assets/MetaGuard/CI/metaguard_scan.sh`
-=======
-- Shell script template included at `Assets/CI/metaguard_scan.sh`
->>>>>>> 535bab848ab29badabd4510c97f00570ec3ca11a
 - GitHub Actions usage example in documentation
 
 #### History Tab
