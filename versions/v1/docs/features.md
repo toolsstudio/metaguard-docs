@@ -76,7 +76,7 @@ Four actions are available per issue class:
 
 The `excludeAssetPaths` field in the policy file lists project-relative paths excluded from BrokenReference analysis. This is used to suppress false positives from pipeline-managed assets (URP global settings, default volume profiles) without disabling BrokenReference detection globally.
 
-→ See [policy.md](policy.md) for the complete policy reference.
+→ See [Policy System](../../../docs/policy.md) in the 2.x documentation for the complete policy reference.
 
 ---
 

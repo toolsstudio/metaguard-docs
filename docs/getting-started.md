@@ -1,9 +1,5 @@
 # Getting Started
 
-> First time using MetaGuard? This page takes you from installation to your first successful scan and rollback in under five minutes.
-
----
-
 ## 1. Install
 
 MetaGuard Pro 2.0.1 is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).

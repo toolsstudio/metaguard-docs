@@ -2,7 +2,7 @@
 
 ---
 
-## The MetaGuard Menu Item Does Not Appear
+## The MetaGuard Menu Does Not Appear
 
 **Check for compilation errors.**
 
@@ -73,7 +73,7 @@ If Unity is mid-import when a scan starts, assets being processed may have incom
 
 URP's `UniversalRenderPipelineGlobalSettings.asset` and `DefaultVolumeProfile.asset` reference GUIDs in the `Packages/` folder. These references are valid at runtime but may appear broken if the scanner does not index the Packages directory or if those specific assets are not excluded from analysis.
 
-MetaGuard 2.0.1 defaults to `AssetsAndPackages` scan depth and excludes these assets in the default policy. If you are still seeing these false positives:
+MetaGuard 2.x defaults to `AssetsAndPackages` scan depth and excludes these assets in the default policy. If you are still seeing these false positives:
 
 1. Open `Assets/MetaGuard/metaguard_policy.json`
 2. Confirm `excludeAssetPaths` contains both paths:
@@ -138,7 +138,7 @@ These warnings appear after running **Setup Demo Assets** from the Demo system. 
 
 ## `m_DisallowAutoRefresh >= 0` Assertion Errors
 
-These assertion errors fire when `AssetDatabase.AllowAutoRefresh()` is called more times than `AssetDatabase.DisallowAutoRefresh()`. MetaGuard 2.0.1 does not call either of these methods. If you see these errors after running MetaGuard:
+These assertion errors fire when `AssetDatabase.AllowAutoRefresh()` is called more times than `AssetDatabase.DisallowAutoRefresh()`. MetaGuard Pro does not call either of these methods. If you see these errors after running MetaGuard:
 
 1. Confirm you are on the latest version — earlier builds of the Demo system contained an imbalanced call pair that was removed in 2.0.1
 2. If the error persists, check whether another tool in the project is calling `DisallowAutoRefresh` without a corresponding `AllowAutoRefresh`
@@ -147,7 +147,7 @@ These assertion errors fire when `AssetDatabase.AllowAutoRefresh()` is called mo
 
 ## "Overwriting the Same Path as Another Open Scene" Error
 
-This error fires when `EditorSceneManager.SaveScene` targets a scene that is already loaded. MetaGuard 2.0.1 writes the demo scene as raw YAML and does not call `EditorSceneManager.SaveScene`. If you see this error:
+This error fires when `EditorSceneManager.SaveScene` targets a scene that is already loaded. MetaGuard Pro writes the demo scene as raw YAML and does not call `EditorSceneManager.SaveScene`. If you see this error:
 
 1. Confirm you are on version 2.0.1 or later — earlier builds used `EditorSceneManager` for scene creation
 2. Reimport the package to ensure `DemoSetupEditor.cs` is the current version
@@ -156,7 +156,7 @@ This error fires when `EditorSceneManager.SaveScene` targets a scene that is alr
 
 ## Demo Test Cases TC-1 and TC-2 Show NOT READY After Setup
 
-`AssetDatabase.Refresh()` regenerates missing `.meta` files (TC-2) and processes orphaned `.meta` files (TC-1) automatically. In MetaGuard 2.0.1, TC-1 and TC-2 are written after all `Refresh()` calls complete, leaving Unity with no opportunity to repair them during setup.
+`AssetDatabase.Refresh()` regenerates missing `.meta` files (TC-2) and processes orphaned `.meta` files (TC-1) automatically. TC-1 and TC-2 are written after all `Refresh()` calls complete, leaving Unity with no opportunity to repair them during setup.
 
 If you see NOT READY states:
 

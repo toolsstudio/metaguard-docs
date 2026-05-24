@@ -145,7 +145,7 @@ The demo system seeds a controlled set of broken asset states so you can verify 
 
 **Why does Validate Demo State show fewer than 5/5 after setup?**
 
-Unity's `AssetDatabase.Refresh()` regenerates missing `.meta` files (TC-2) and processes orphaned `.meta` files (TC-1) automatically. In MetaGuard 2.0.1, TC-1 and TC-2 are written as the last step of setup, after all `Refresh()` calls complete, so Unity has no opportunity to repair them. If you are seeing 3/5, you are likely running a version prior to 2.0.1. Update to the latest package.
+Unity's `AssetDatabase.Refresh()` regenerates missing `.meta` files (TC-2) and processes orphaned `.meta` files (TC-1) automatically. TC-1 and TC-2 are written as the last step of setup, after all `Refresh()` calls complete, so Unity has no opportunity to repair them. If you are seeing 3/5, you are likely running a version prior to 2.0.1. Update to the latest package.
 
 **Are the YAML warnings for TC-3 and TC-4 expected?**
 

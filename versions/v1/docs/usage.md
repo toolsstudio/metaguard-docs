@@ -21,7 +21,7 @@ The window docks like any standard Unity Editor panel and can be resized or repo
 ## Header
 
 The header bar displays:
-- Current version (`Version 2.0.0`)
+- Current version (shown in About tab)
 - Scan mode indicator (`Watching` when the file watcher is active)
 - Project health score (updated after each completed scan)
 - `Dirty (N)` badge — appears when assets have changed since the last scan
@@ -204,7 +204,7 @@ Displays the currently loaded policy configuration.
 
 The notice at the bottom of the Policy tab confirms the loaded file path and reminds you that the same file is used by the CLI.
 
-→ See [policy.md](policy.md) for the full policy reference.
+→ See [Policy System](../../../docs/policy.md) in the 2.x documentation for the full policy reference.
 
 ---
 

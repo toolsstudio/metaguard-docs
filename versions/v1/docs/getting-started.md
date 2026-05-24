@@ -52,7 +52,7 @@ Tools > MetaGuard > Create Default Policy File
 
 Commit `metaguard_policy.json` to source control so all team members and CI pipelines use the same rules.
 
-→ See [policy.md](policy.md) for the full policy reference.
+→ See [Policy System](../../../docs/policy.md) in the 2.x documentation for the full policy reference.
 
 ---
 
@@ -133,7 +133,7 @@ After rollback, run **Scan + Analyze** to confirm the project is back in its pre
 |---|---|
 | [usage.md](usage.md) | Every button, tab, and control explained |
 | [features.md](features.md) | Full feature reference |
-| [policy.md](policy.md) | How per-project rules control issue handling and CI enforcement |
+| [Policy System](../../../docs/policy.md) | How per-project rules control issue handling and CI enforcement (2.x feature) |
 | [cli.md](../../../docs/cli.md) | Running MetaGuard in CI and batch mode |
 | [safety.md](safety.md) | How the snapshot and rollback system works in detail |
 | [cache-system.md](cache-system.md) | Faster repeated scans on large projects |

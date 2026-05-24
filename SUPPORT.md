@@ -1,13 +1,12 @@
 # Support
 
-**MetaGuard v2.0.0** | Publisher: Tools Studio
+**MetaGuard Pro 2.0.1** | Publisher: Tools Studio
 
 ---
 
 ## Before Asking
 
-
-Check [docs/troubleshooting.md](../../versions/v2/troubleshooting.md) first. It covers the most common scan, apply, rollback, cache, policy, and CLI issues with step-by-step resolutions.
+Check [docs/troubleshooting.md](docs/troubleshooting.md) first. It covers the most common scan, apply, rollback, cache, policy, and CLI issues with step-by-step resolutions.
 
 ---
 
@@ -42,10 +41,9 @@ Documentation contributions via pull request are welcome — see [CONTRIBUTING.m
 
 ## Purchase & Licensing
 
-MetaGuard Pro 2.0.0 is available exclusively on the Unity Asset Store:
+MetaGuard Pro 2.0.1 is available exclusively on the Unity Asset Store:
 
 - [Unity Asset Store — package 376206](https://assetstore.unity.com/packages/slug/376206)
-
 
 For Asset Store invoice, refund, or licensing questions, contact Unity Support directly via your Asset Store account.
 
@@ -53,7 +51,7 @@ For Asset Store invoice, refund, or licensing questions, contact Unity Support d
 
 ## Email
 
-For non-public inquiries: [Email](tools.studio@zohomail.in)
+For non-public inquiries: tools.studio@zohomail.in
 
 ---
 

@@ -11,7 +11,7 @@ The demo is useful for:
 - Verifying a fresh installation works end-to-end
 - Onboarding developers who are new to MetaGuard
 - Regression testing after a MetaGuard package update
-- Confirming the scan pipeline correctly handles each issue class
+- Confirming MetaGuard correctly handles each issue class
 
 The test cases are intentionally broken assets. They are not real project issues and will not affect your project outside the `Assets/MetaGuard/Demo/TestAssets/` directory.
 

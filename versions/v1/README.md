@@ -5,6 +5,10 @@
 
 ---
 
+> **Note:** These archived docs were written alongside 2.x development and contain forward-references to features introduced in 2.x (policy system, CLI integration, demo system). Those sections describe 2.x behaviour, not 1.x. Treat this archive as a historical reference only.
+
+---
+
 ## Version Notice
 
 MetaGuard 1.x was the initial release. It included the core scan, analysis, simulation, apply, and rollback pipeline. It did not include the policy system, CLI integration, health history, or demo system — those were introduced in 2.x.

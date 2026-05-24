@@ -105,7 +105,7 @@ The auto-fix system handles the most common, low-risk issue classes automaticall
 - **Orphan deletion** — Removes `.meta` files that have no corresponding asset on disk.
 - **Missing meta creation** — Generates a new `.meta` file for assets that are missing one.
 
-**Fix All Safe** runs the full auto-fix pipeline — scan, simulate, and apply — in a single action, applying only Safe verdicts.
+**Fix All Safe** runs the full auto-fix sequence — scan, simulate, and apply — in a single action, applying only Safe verdicts.
 
 ---
 

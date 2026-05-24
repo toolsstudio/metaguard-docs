@@ -11,6 +11,19 @@ MetaGuard adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.0.1] — 2026-05-23
+
+### Fixed
+
+- `MetaGuard.Demo.asmdef` had `autoReferenced: true`, causing demo MonoBehaviours to compile into all customer builds. Set to `false`.
+- `TC2_MissingMeta.txt` shipped with a UTF-8 BOM, producing a false read when compared byte-for-byte in CI. BOM stripped.
+- CLI `ViolationCheck =>` debug lines were emitted to customer CI output on every scan evaluation. Removed.
+- Version string normalized to `2.0.1` across `MetaGuardWindow`, `MetaGuardCLI`, and `HealthLogEntry` defaults.
+- `CliArgs` property declarations carried artificial column-alignment padding. Cleaned.
+- CI template files (`metaguard_github_actions.yml`, `metaguard_scan.sh`) contained decorative separator lines and verbose banner headers. Removed.
+
+---
+
 ## [2.0.0] — 2026-05-01
 
 ### Added
@@ -21,7 +34,7 @@ MetaGuard adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `Block` action enforces a hard violation in CLI scans (exit code 1) regardless of other counts
 - `excludeAssetPaths` array — project-relative paths excluded from BrokenReference analysis, used to suppress URP global settings and other pipeline-managed assets that produce false positives
 - Policy tab in the MetaGuard window — displays current rules, action legend, and reload button
-- `Tools > MetaGuard > Create Default Policy File` menu item
+- `Tools > MetaGuard Pro > Create Default Policy File` menu item
 - Policy enforcement consistent between Editor tool and CLI — same file governs both
 
 #### CLI / CI Integration
@@ -31,7 +44,6 @@ MetaGuard adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - CLI arguments: `--policy <path>`, `--format json|text`, `--output <path>`, `--threshold <0–5>`, `--version`, `--help`
 - Deterministic exit codes: `0` = clean, `1` = violations, `2` = scan failure
 - Violation logic: `has_violations = true` when `critical > 0`, `high > 0`, `health_score == 0`, or `health_score <= threshold`
-- Debug line emitted after each evaluation: `ViolationCheck => critical:X high:Y threshold:Z result:true/false`
 - Shell script template included at `Assets/MetaGuard/CI/metaguard_scan.sh`
 - GitHub Actions usage example in documentation
 
@@ -62,8 +74,8 @@ MetaGuard adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - **Scan depth default**: Changed from `AssetsOnly` to `AssetsAndPackages` — indexes URP and other package GUIDs, eliminating false-positive BrokenReference reports from package-managed assets
-- **Header version format**: Displays `Version 2.0.0` (previously `v2.0.0`)
-- **History tab version format**: Bare numbers without prefix (previously `v2.0.0`)
+- **Header version format**: Displays bare version number without `v` prefix (previously `v2.0.0`)
+- **History tab**: Bare version numbers, no `v` prefix
 - **`PolicyFileLoader.CreateDefaultFromMenu`**: Shows a dialog if the file already exists rather than logging to Console
 - **`ScanConfiguration.Default()`**: Uses `ScanDepth.AssetsAndPackages`
 - **`IntegrityAnalyzer.Analyze()`**: Accepts an optional `PolicyConfig` parameter; `BrokenReference` results filtered against `excludeAssetPaths` before surfacing
@@ -125,6 +137,7 @@ MetaGuard adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
-[Unreleased]: https://github.com/toolsstudio/metaguard/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/toolsstudio/metaguard/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/toolsstudio/metaguard/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/toolsstudio/metaguard/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/toolsstudio/metaguard/releases/tag/v1.0.0

@@ -19,7 +19,7 @@
 
 ## Purchasing and Downloading
 
-MetaGuard 2.0.0 is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).
+MetaGuard 2.x is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).
 
 After purchase, download the `.unitypackage` through the Unity Package Manager or the Asset Store window inside the Unity Editor.
 
@@ -84,7 +84,7 @@ On first use, MetaGuard creates a default `metaguard_policy.json` in `Assets/Met
 
 Commit `metaguard_policy.json` to source control so all team members and CI pipelines use the same rules.
 
-→ See [policy.md](policy.md) for the full policy reference and action descriptions.
+→ See [Policy System](../../../docs/policy.md) in the 2.x documentation for the full policy reference.
 
 ---
 
