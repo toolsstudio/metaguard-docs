@@ -1,4 +1,4 @@
-> ⚠️ **This is an archived version (v1). Use [MetaGuard Pro (v2)](../../versions/v2/) documentation instead.**
+> **Archive — MetaGuard 1.x.** This version has reached end of life. Current documentation is at the [repository root](../../../README.md).
 
 ---
 
@@ -134,8 +134,8 @@ After rollback, run **Scan + Analyze** to confirm the project is back in its pre
 | [usage.md](usage.md) | Every button, tab, and control explained |
 | [features.md](features.md) | Full feature reference |
 | [policy.md](policy.md) | How per-project rules control issue handling and CI enforcement |
-| [cli.md](cli.md) | Running MetaGuard in CI and batch mode |
+| [cli.md](../../../docs/cli.md) | Running MetaGuard in CI and batch mode |
 | [safety.md](safety.md) | How the snapshot and rollback system works in detail |
 | [cache-system.md](cache-system.md) | Faster repeated scans on large projects |
-| [best-practices.md](best-practices.md) | Team workflows and source control recommendations |
+| [best-practices.md](../../../docs/best-practices.md) | Team workflows and source control recommendations |
 | [troubleshooting.md](troubleshooting.md) | If something does not behave as expected |

@@ -11,7 +11,7 @@ Location: `Assets/MetaGuard/metaguard_policy.json`
 MetaGuard creates this file with default values when the window is opened for the first time. To create it manually:
 
 ```
-Tools > MetaGuard Pro > Create Default Policy File
+Tools > MetaGuard > Create Default Policy File
 ```
 
 Commit the file to source control. Every team member and every CI run will use the same rules.
@@ -19,7 +19,7 @@ Commit the file to source control. Every team member and every CI run will use t
 ```json
 {
   "version": 1,
-  "description": "MetaGuard Fix Policy v2.0 — commit this file to share policy across the team. Same file used by CLI for CI/CD scans.",
+  "description": "MetaGuard Pro policy — commit to source control. Used by both the Editor tool and CLI scans.",
   "rules": {
     "GUIDCollision":    "Block",
     "ZeroGUID":         "AutoFix",
@@ -81,14 +81,6 @@ A CLI scan sets `has_violations: true` (exit code 1) when **any** of the followi
 - A `Block` policy rule matches any detected issue
 
 All five conditions are evaluated independently. A project with no Critical or High issues but a Block-matched issue will still exit with code 1.
-
-The following debug line is emitted to both stderr and the Unity `-logFile` after every evaluation:
-
-```
-ViolationCheck => critical:0 high:0 threshold:4 result:false
-```
-
-This is emitted regardless of the result and is useful for diagnosing unexpected pass/fail outcomes in CI.
 
 ---
 

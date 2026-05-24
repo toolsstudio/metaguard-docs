@@ -6,7 +6,7 @@
 
 ## 1. Install
 
-MetaGuard 2.0.0 is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).
+MetaGuard Pro 2.0.1 is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).
 
 ```
 Assets > Import Package > Custom Package…
@@ -26,13 +26,7 @@ MetaGuard installs to `Assets/MetaGuard/`. No additional setup is required.
 Tools > MetaGuard Pro > Open
 ```
 
-The MetaGuard window opens and docks like any standard Unity Editor panel. At the top of the window, the pipeline step bar tracks where you are:
-
-```
-Scan  ──►  Analyze  ──►  Simulate  ──►  Apply  ──►  Rollback
-```
-
-Stages activate as you move through the pipeline. You cannot skip a stage.
+The MetaGuard window opens and docks like any standard Unity Editor panel. At the top of the window, the step bar shows where you are: **Scan → Analyze → Simulate → Apply → Rollback**. Stages activate as you move through the workflow. You cannot skip a stage.
 
 ---
 

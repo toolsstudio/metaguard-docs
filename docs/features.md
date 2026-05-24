@@ -91,7 +91,7 @@ The simulation produces no side effects. No files are written or modified during
 
 ---
 
-## Safe Apply Pipeline
+## Safe Apply
 
 Apply writes only Safe and Warning operations. Each write is staged through a temporary file — if the write is interrupted by a crash or power loss, the original file is not corrupted. All affected assets are refreshed in the Unity asset database after all writes complete. MetaGuard does not trigger per-file reimports during the write pass.
 
@@ -99,7 +99,7 @@ Apply writes only Safe and Warning operations. Each write is staged through a te
 
 ## Auto-Fix Controller
 
-The auto-fix pipeline handles the most common, low-risk issue classes automatically:
+The auto-fix system handles the most common, low-risk issue classes automatically:
 
 - **GUID regeneration** — Assigns a new unique GUID to assets with zero or colliding GUIDs, and updates all known references.
 - **Orphan deletion** — Removes `.meta` files that have no corresponding asset on disk.
@@ -127,7 +127,7 @@ MetaGuard exposes a headless CLI entry point for Unity batch mode:
 Unity -batchmode \
   -projectPath /path/to/project \
   -executeMethod ToolsStudio.MetaGuard.Editor.CLI.MetaGuardCLI.Run \
-  -logFile metaguard.log -quit \
+  -logFile metaguard.log \
   -- --format json --threshold 4
 ```
 

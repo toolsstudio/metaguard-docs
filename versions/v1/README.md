@@ -1,7 +1,3 @@
-> ⚠️ **This is an archived version (v1). Use [MetaGuard Pro (v2)](../../versions/v2/) documentation instead.**
-
----
-
 # MetaGuard 1.x Documentation
 
 > **This is an archived version.** MetaGuard 1.x has reached end of life.
@@ -11,7 +7,7 @@
 
 ## Version Notice
 
-MetaGuard 1.x was the initial release. It included the core scan, analysis, simulation, apply, and rollback pipeline. It did not include the policy system, CLI integration, health history, or demo system — those were introduced in 2.0.0.
+MetaGuard 1.x was the initial release. It included the core scan, analysis, simulation, apply, and rollback pipeline. It did not include the policy system, CLI integration, health history, or demo system — those were introduced in 2.x.
 
 ---
 
@@ -19,22 +15,22 @@ MetaGuard 1.x was the initial release. It included the core scan, analysis, simu
 
 | Document | |
 |---|---|
-| [Getting Started](../../versions/v2/getting-started.md) | First scan walkthrough |
-| [Features](../../versions/v2/features.md) | Feature reference |
-| [Usage](../../versions/v2/usage.md) | UI reference |
-| [Safety & Rollback](../../versions/v2/safety.md) | Snapshot and rollback model |
-| [Cache System](../../versions/v2/cache-system.md) | Scan cache reference |
-| [Troubleshooting](../../versions/v2/troubleshooting.md) | Common issues |
-| [FAQ](../../versions/v2/faq.md) | Frequently asked questions |
+| [Getting Started](docs/getting-started.md) | First scan walkthrough |
+| [Features](docs/features.md) | Feature reference |
+| [Usage](docs/usage.md) | UI reference |
+| [Safety & Rollback](docs/safety.md) | Snapshot and rollback model |
+| [Cache System](docs/cache-system.md) | Scan cache reference |
+| [Troubleshooting](docs/troubleshooting.md) | Common issues |
+| [FAQ](docs/faq.md) | Frequently asked questions |
 
 ---
 
 ## Upgrading to 2.x
 
-MetaGuard 2.0.0 is a paid upgrade available on the Unity Asset Store.
+MetaGuard 2.x is a paid upgrade available on the Unity Asset Store.
 It is published as a separate asset from the 1.x free version.
 
-Key additions in 2.0.0:
+Key additions in 2.x:
 - Policy system (`metaguard_policy.json`) — per-team rule enforcement
 - CLI entry point for CI/CD pipeline integration
 - Project health history log

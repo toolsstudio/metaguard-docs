@@ -76,7 +76,7 @@ The log line confirming the write:
 
 ```json
 {
-  "metaguard_version": "2.0.0",
+  "metaguard_version": "2.0.1",
   "timestamp": "2026-04-30T17:01:20.000Z",
   "has_violations": false,
   "health_score": 98,
@@ -108,18 +108,6 @@ The log line confirming the write:
 ```
 
 `has_violations` is the authoritative pass/fail field. Use it in CI decision logic.
-
----
-
-## Debug Line
-
-After every violation evaluation, MetaGuard emits the following line to both stderr and the Unity `-logFile`:
-
-```
-ViolationCheck => critical:0 high:0 threshold:4 result:false
-```
-
-This is emitted regardless of the outcome. Use it to debug threshold and policy configuration when a CI run produces an unexpected pass or fail.
 
 ---
 

@@ -1,4 +1,4 @@
-> ⚠️ **This is an archived version (v1). Use [MetaGuard Pro (v2)](../../versions/v2/) documentation instead.**
+> **Archive — MetaGuard 1.x.** This version has reached end of life. Current documentation is at the [repository root](../../../README.md).
 
 ---
 

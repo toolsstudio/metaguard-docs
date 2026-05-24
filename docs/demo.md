@@ -20,10 +20,10 @@ The test cases are intentionally broken assets. They are not real project issues
 ## Menu Items
 
 ```
-Tools > MetaGuard > Setup Demo Assets
-Tools > MetaGuard > Run Demo Scan
-Tools > MetaGuard > Validate Demo State
-Tools > MetaGuard > Teardown Demo Assets
+Tools > MetaGuard Pro > Demo > Setup Demo Assets
+Tools > MetaGuard Pro > Demo > Run Demo Scan
+Tools > MetaGuard Pro > Demo > Validate Demo State
+Tools > MetaGuard Pro > Demo > Teardown Demo Assets
 ```
 
 ---
@@ -31,7 +31,7 @@ Tools > MetaGuard > Teardown Demo Assets
 ## Setup
 
 ```
-Tools > MetaGuard > Setup Demo Assets
+Tools > MetaGuard Pro > Demo > Setup Demo Assets
 ```
 
 Creates five test case files in `Assets/MetaGuard/Demo/TestAssets/` and writes the demo scene. The setup is deterministic and idempotent — running it multiple times produces the same state.
@@ -78,22 +78,19 @@ These warnings are **expected and intentional**. They confirm the test cases are
 ## Validation
 
 ```
-Tools > MetaGuard > Validate Demo State
+Tools > MetaGuard Pro > Demo > Validate Demo State
 ```
 
 Prints a report to the Console confirming which test cases are in the correct broken state:
 
 ```
-[MetaGuard Demo] Validation Report
-─────────────────────────────────────
+[MetaGuard] Demo status:
 TC-1 OrphanedMeta    : READY
 TC-2 MissingMeta     : READY
 TC-3 ZeroGUID        : READY
 TC-4 MalformedGUID   : READY
 TC-5 BrokenReference : READY
-─────────────────────────────────────
-Result: 5/5 test cases are in the expected broken state.
-✓ All test cases ready — run 'Run Demo Scan' to validate MetaGuard.
+5/5 test cases ready.
 ```
 
 If any case shows NOT READY, run **Setup Demo Assets** again.
@@ -103,7 +100,7 @@ If any case shows NOT READY, run **Setup Demo Assets** again.
 ## Running the Demo Scan
 
 ```
-Tools > MetaGuard > Run Demo Scan
+Tools > MetaGuard Pro > Demo > Run Demo Scan
 ```
 
 Opens the MetaGuard window and triggers **Scan + Analyze** automatically. After the scan completes, the Issues tab will show at minimum 5 issues across the five test case types.
@@ -123,7 +120,7 @@ Expected scan results with the default policy:
 ## Teardown
 
 ```
-Tools > MetaGuard > Teardown Demo Assets
+Tools > MetaGuard Pro > Demo > Teardown Demo Assets
 ```
 
 Deletes all seeded test files from `Assets/MetaGuard/Demo/TestAssets/`. The demo scene, scripts, and assembly definitions are preserved. Run **Setup Demo Assets** again at any time to reseed.
@@ -151,4 +148,4 @@ The demo system uses a clean Editor/runtime split:
 | `MetaGuard.Demo` | Runtime | `DemoBootstrap`, `DemoDataConfig`, `DemoScriptReference` |
 | `MetaGuard.Demo.Editor` | Editor-only | `DemoSetupEditor` — all menu items, test case seeding, scene writing |
 
-`MetaGuard.Demo.Editor` references `MetaGuard.Demo`, `MetaGuard.Editor`, and `MetaGuard.Internal`. No runtime assembly references any Editor-only type.
+`MetaGuard.Demo.Editor` references `MetaGuard.Demo`, `MetaGuard.Editor`, and `MetaGuard.Internal`. No runtime assembly references any Editor-only type. `MetaGuard.Demo` is not auto-referenced — it is excluded from player builds.

@@ -6,7 +6,7 @@
 
 **Does MetaGuard modify anything at runtime?**
 
-No. All MetaGuard assemblies are Editor-only and are excluded from builds automatically. Nothing from MetaGuard appears in a player build. The `MetaGuard.Internal` assembly is runtime-safe (no Editor dependencies) but is marked `autoReferenced: true` so the scene serializer can locate the `DemoBootstrap` MonoBehaviour — it does not introduce any runtime code to builds.
+No. All MetaGuard assemblies are Editor-only and are excluded from builds automatically. Nothing from MetaGuard appears in a player build. The `MetaGuard.Internal` assembly is runtime-safe (no Editor dependencies). `MetaGuard.Demo` is not auto-referenced and is excluded from player builds.
 
 **Does MetaGuard work with URP, HDRP, and the built-in render pipeline?**
 
@@ -20,7 +20,7 @@ Unity 2020.3 LTS and later, including Unity 6. Earlier versions are not tested a
 
 Yes. MetaGuard creates a pre-apply snapshot before any file write and provides a 48-hour rollback window. The simulation stage confirms every operation's safety before Apply runs. No file is modified without a recoverable backup.
 
-**Does MetaGuard require any dependencies?**
+**Does MetaGuard Pro require any dependencies?**
 
 No. MetaGuard has no external package dependencies and does not require the Package Manager to install anything. All required code is included in the `.unitypackage`.
 
@@ -36,9 +36,9 @@ On a project with a few hundred assets, a full scan typically completes in under
 
 The default scan depth is `AssetsAndPackages`, which indexes GUIDs in the `Packages/` folder. This is required to correctly resolve references from assets like URP materials that point to shader GUIDs inside the `Packages/` directory. MetaGuard never writes to `Packages/`.
 
-**Why does my project show 120+ BrokenReference issues on the first scan after upgrading from v1.0.0?**
+**Why does my project show 120+ BrokenReference issues after upgrading from v1.x?**
 
-In v1.0.0, the default scan depth was `AssetsOnly`. Upgrading to v2.0.0 changes the default to `AssetsAndPackages`, which may reveal pre-existing issues that were not visible before because the relevant GUIDs were outside the scan boundary.
+In v1.x, the default scan depth was `AssetsOnly`. Upgrading to v2.x changes the default to `AssetsAndPackages`, which may reveal pre-existing issues that were not visible before because the relevant GUIDs were outside the scan boundary.
 
 Additionally, if your policy file was created in v1.0.0, it will not contain the `excludeAssetPaths` entries for URP assets. Add them manually:
 
@@ -143,9 +143,9 @@ Consistent report generation makes it possible to upload CI artifacts unconditio
 
 The demo system seeds a controlled set of broken asset states so you can verify that MetaGuard detects, simulates, and fixes each issue class correctly in your environment. It is useful for verifying a fresh installation, onboarding new team members, and regression testing after a package update.
 
-**Why does Validate Demo State show 3/5 after setup?**
+**Why does Validate Demo State show fewer than 5/5 after setup?**
 
-Unity's `AssetDatabase.Refresh()` regenerates missing `.meta` files (TC-2) and processes orphaned `.meta` files (TC-1) automatically. In MetaGuard Pro 2.0.0, TC-1 and TC-2 are written as the last step of setup, after all `Refresh()` calls complete, so Unity has no opportunity to repair them. If you are seeing 3/5, you are likely running an earlier version. Update to the latest package.
+Unity's `AssetDatabase.Refresh()` regenerates missing `.meta` files (TC-2) and processes orphaned `.meta` files (TC-1) automatically. In MetaGuard 2.0.1, TC-1 and TC-2 are written as the last step of setup, after all `Refresh()` calls complete, so Unity has no opportunity to repair them. If you are seeing 3/5, you are likely running a version prior to 2.0.1. Update to the latest package.
 
 **Are the YAML warnings for TC-3 and TC-4 expected?**
 
@@ -161,7 +161,7 @@ No. All test case files are written to `Assets/MetaGuard/Demo/TestAssets/`. Runn
 
 **Where can I purchase MetaGuard?**
 
-MetaGuard Pro 2.0.0 is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).
+MetaGuard Pro 2.0.1 is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).
 
 **Is there a free trial or demo version?**
 

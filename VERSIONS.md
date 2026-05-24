@@ -5,7 +5,7 @@ All paths below are permanent and will not change when new versions are released
 
 | Version | Status | Documentation |
 |---|---|---|
-| **2.x** | Current stable | [README.md](README.md) and [versions/v2/](versions/v2/) |
+| **2.x** | Current stable | [README.md](README.md) and [docs/](docs/) |
 | 1.x | End of life | [versions/v1/](versions/v1/) |
 
 ---
@@ -15,8 +15,8 @@ All paths below are permanent and will not change when new versions are released
 Documentation for a version is maintained in the repository root (`/docs/`) while that version is current stable.
 
 When a new major version is released:
-1. The current `/versions/v2/` contents are archived to `/versions/vN/`
-2. New content is written to `/versions/v2/`
+1. The current `/docs/` contents are archived to `/versions/vN/docs/`
+2. New content is written to `/docs/`
 3. The root `README.md` is updated with the new version notice
 4. The archived version entry is added to this file
 

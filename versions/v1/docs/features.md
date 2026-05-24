@@ -1,4 +1,4 @@
-> ⚠️ **This is an archived version (v1). Use [MetaGuard Pro (v2)](../../versions/v2/) documentation instead.**
+> **Archive — MetaGuard 1.x.** This version has reached end of life. Current documentation is at the [repository root](../../../README.md).
 
 ---
 
@@ -137,7 +137,7 @@ Unity -batchmode \
 
 Reports are written automatically to `MetaGuardReports/` when `--output` is not specified. Exit codes are deterministic: `0` = clean, `1` = violations, `2` = scan failure.
 
-→ See [cli.md](cli.md) for the full CLI reference, including GitHub Actions and GitLab CI examples.
+→ See the [CLI documentation](../../../docs/cli.md) for the full CLI reference, including GitHub Actions and GitLab CI examples.
 
 ---
 

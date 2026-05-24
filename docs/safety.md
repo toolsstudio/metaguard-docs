@@ -119,7 +119,7 @@ Simulation verdicts are computed against these constraints. An operation that wo
 If Unity crashes during an Apply session:
 
 1. Reopen the project.
-2. Open MetaGuard via `Tools > MetaGuard Pro > Open`.
+2. Open MetaGuard via `Tools > MetaGuard > Open MetaGuard`.
 3. The session initializer detects the interrupted session at startup and activates the Rollback button.
 4. Click **Rollback** to restore the pre-apply state.
 

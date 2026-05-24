@@ -6,7 +6,7 @@
 
 **Check for compilation errors.**
 
-The `Tools > MetaGuard` menu is registered by `[MenuItem]` attributes in the MetaGuard Editor assembly. If the assembly fails to compile for any reason, no menu items are registered. Open the Unity Console and resolve any compilation errors before checking the menu again.
+The `Tools > MetaGuard Pro` menu is registered by `[MenuItem]` attributes in the MetaGuard Editor assembly. If the assembly fails to compile for any reason, no menu items are registered. Open the Unity Console and resolve any compilation errors before checking the menu again.
 
 Common causes:
 - A file was not imported correctly — re-import the `.unitypackage` and confirm all items are checked in the import dialog
@@ -73,7 +73,7 @@ If Unity is mid-import when a scan starts, assets being processed may have incom
 
 URP's `UniversalRenderPipelineGlobalSettings.asset` and `DefaultVolumeProfile.asset` reference GUIDs in the `Packages/` folder. These references are valid at runtime but may appear broken if the scanner does not index the Packages directory or if those specific assets are not excluded from analysis.
 
-MetaGuard Pro 2.0.0 defaults to `AssetsAndPackages` scan depth and excludes these assets in the default policy. If you are still seeing these false positives after updating to 2.0.0:
+MetaGuard 2.0.1 defaults to `AssetsAndPackages` scan depth and excludes these assets in the default policy. If you are still seeing these false positives:
 
 1. Open `Assets/MetaGuard/metaguard_policy.json`
 2. Confirm `excludeAssetPaths` contains both paths:
@@ -138,25 +138,25 @@ These warnings appear after running **Setup Demo Assets** from the Demo system. 
 
 ## `m_DisallowAutoRefresh >= 0` Assertion Errors
 
-These assertion errors fire when `AssetDatabase.AllowAutoRefresh()` is called more times than `AssetDatabase.DisallowAutoRefresh()`. MetaGuard Pro 2.0.0 does not call either of these methods. If you see these errors after running MetaGuard:
+These assertion errors fire when `AssetDatabase.AllowAutoRefresh()` is called more times than `AssetDatabase.DisallowAutoRefresh()`. MetaGuard 2.0.1 does not call either of these methods. If you see these errors after running MetaGuard:
 
-1. Confirm you are on the latest version — earlier builds of the Demo system contained an imbalanced call pair that was removed in 2.0.0
+1. Confirm you are on the latest version — earlier builds of the Demo system contained an imbalanced call pair that was removed in 2.0.1
 2. If the error persists, check whether another tool in the project is calling `DisallowAutoRefresh` without a corresponding `AllowAutoRefresh`
 
 ---
 
 ## "Overwriting the Same Path as Another Open Scene" Error
 
-This error fires when `EditorSceneManager.SaveScene` targets a scene that is already loaded. MetaGuard Pro 2.0.0 writes the demo scene as raw YAML and does not call `EditorSceneManager.SaveScene`. If you see this error:
+This error fires when `EditorSceneManager.SaveScene` targets a scene that is already loaded. MetaGuard 2.0.1 writes the demo scene as raw YAML and does not call `EditorSceneManager.SaveScene`. If you see this error:
 
-1. Confirm you are on the latest version — earlier builds used `EditorSceneManager` for scene creation
+1. Confirm you are on version 2.0.1 or later — earlier builds used `EditorSceneManager` for scene creation
 2. Reimport the package to ensure `DemoSetupEditor.cs` is the current version
 
 ---
 
 ## Demo Test Cases TC-1 and TC-2 Show NOT READY After Setup
 
-`AssetDatabase.Refresh()` regenerates missing `.meta` files (TC-2) and processes orphaned `.meta` files (TC-1) automatically. In MetaGuard Pro 2.0.0, TC-1 and TC-2 are written after all `Refresh()` calls complete, leaving Unity with no opportunity to repair them during setup.
+`AssetDatabase.Refresh()` regenerates missing `.meta` files (TC-2) and processes orphaned `.meta` files (TC-1) automatically. In MetaGuard 2.0.1, TC-1 and TC-2 are written after all `Refresh()` calls complete, leaving Unity with no opportunity to repair them during setup.
 
 If you see NOT READY states:
 

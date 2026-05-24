@@ -15,7 +15,7 @@
 
 ## Purchasing and Downloading
 
-MetaGuard 2.0.0 is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).
+MetaGuard Pro 2.0.1 is available on the [Unity Asset Store](https://assetstore.unity.com/packages/slug/376206).
 
 After purchase, download the `.unitypackage` through the Unity Package Manager or the Asset Store window inside the Unity Editor.
 
@@ -25,7 +25,7 @@ After purchase, download the `.unitypackage` through the Unity Package Manager o
 
 1. In the Unity menu bar, go to **Assets > Import Package > Custom Package…**
 2. Select the downloaded `.unitypackage` file.
-3. In the import dialog, confirm all items are checked and click **Import**.
+3. Confirm all items are checked in the import dialog and click **Import**.
 
 MetaGuard installs entirely under `Assets/MetaGuard/`. Nothing is written outside this folder.
 
@@ -40,7 +40,7 @@ If it does not appear:
 1. Open the Unity Console and check for compilation errors. MetaGuard has no external dependencies — any error indicates a file was not imported correctly.
 2. Re-import the package via **Assets > Import Package > Custom Package…**. In the import dialog, confirm all items are checked before clicking Import.
 3. Confirm the project meets the minimum Unity version requirement (2020.3 LTS or later).
-4. See [troubleshooting.md](troubleshooting.md#the-metaguard-menu-item-does-not-appear) for additional steps.
+4. See [troubleshooting.md](troubleshooting.md#the-metaguard-menu-does-not-appear) for additional steps.
 
 ---
 
@@ -50,7 +50,7 @@ If it does not appear:
 Assets/
 └── MetaGuard/
     ├── Editor/              ←  All editor tooling (Editor-only assembly)
-    ├── Internal/            ←  Data model assembly (runtime-safe, excluded from builds)
+    ├── Internal/            ←  Data model assembly (Editor-only by policy; excluded from builds)
     ├── Demo/                ←  Demo scene and test case system
     ├── Snapshots/           ←  Created on first Apply (not version-controlled)
     ├── MetaGuardReports/    ←  Created on first CLI run (not version-controlled)

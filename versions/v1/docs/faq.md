@@ -1,4 +1,4 @@
-> ⚠️ **This is an archived version (v1). Use [MetaGuard Pro (v2)](../../versions/v2/) documentation instead.**
+> **Archive — MetaGuard 1.x.** This version has reached end of life. Current documentation is at the [repository root](../../../README.md).
 
 ---
 
@@ -173,7 +173,7 @@ There is no separate trial version. The demo system included in the package allo
 
 **What is the license?**
 
-MetaGuard is licensed under the Unity Asset Store End User License Agreement (EULA). See the [LICENSE](../LICENSE) file and the Asset Store product page for details.
+MetaGuard is licensed under the Unity Asset Store End User License Agreement (EULA). See the [LICENSE](../../../LICENSE) file and the Asset Store product page for details.
 
 **Are updates included?**
 

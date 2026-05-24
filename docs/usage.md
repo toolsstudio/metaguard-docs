@@ -17,7 +17,7 @@ The window docks like any standard Unity Editor panel and can be resized or repo
 ## Header
 
 The header bar displays:
-- Current version (`Version 2.0.0`)
+- Current version (`Version 2.0.1`)
 - Scan mode indicator (`Watching` when the file watcher is active)
 - Project health score (updated after each completed scan)
 - `Dirty (N)` badge — appears when assets have changed since the last scan
@@ -25,15 +25,11 @@ The header bar displays:
 
 ---
 
-## Pipeline Step Bar
+## Step Bar
 
-The step bar at the top of the window tracks progress through the five pipeline stages:
+The step bar at the top of the window tracks progress through the five stages:
 
-```
-Scan  ──►  Analyze  ──►  Simulate  ──►  Apply  ──►  Rollback
-```
-
-Each stage activates after the previous one completes. A checkmark (✓) marks completed stages. Stages cannot be skipped.
+Steps: **Scan → Analyze → Simulate → Apply → Rollback**. Each stage activates after the previous one completes. A checkmark (✓) marks completed stages. Stages cannot be skipped.
 
 ---
 

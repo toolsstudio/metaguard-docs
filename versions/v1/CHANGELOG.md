@@ -1,7 +1,3 @@
-> ⚠️ **This is an archived version (v1). Use [MetaGuard Pro (v2)](../../versions/v2/) documentation instead.**
-
----
-
 # Changelog — MetaGuard 1.x
 
 > This is the archived changelog for MetaGuard 1.x.
